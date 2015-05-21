@@ -111,4 +111,9 @@ config MACH_SMDK
 	help
 	  Common machine code for SMDK2410 and SMDK2440
 
+config MACH_HYQ_ARM
+	bool
+	help
+	  Common machine code for HYQ ARM boards i.e. HYQ2440, etc
+
 endif

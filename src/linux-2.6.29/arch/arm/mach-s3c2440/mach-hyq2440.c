@@ -45,7 +45,7 @@
 #include <plat/devs.h>
 #include <plat/cpu.h>
 
-#include <plat/common-smdk.h>
+#include <plat/common-hyq.h>
 
 static struct map_desc hyq2440_iodesc[] __initdata = {
 	/* ISA IO Space map (memory space selected by A24) */
@@ -170,7 +170,7 @@ static void __init hyq2440_machine_init(void)
 	s3c_i2c0_set_platdata(NULL);
 
 	platform_add_devices(hyq2440_devices, ARRAY_SIZE(hyq2440_devices));
-	//smdk_machine_init();
+	hyq_machine_init();
 }
 
 MACHINE_START(MINI2440, "HYQ2440")
