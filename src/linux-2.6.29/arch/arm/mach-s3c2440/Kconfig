@@ -26,6 +26,13 @@ config S3C2440_DMA
 
 menu "S3C2440 Machines"
 
+config MACH_HYQ2440
+	bool "HYQ2440 development board"
+	select CPU_S3C2440
+	select MACH_HYQ
+	help
+	  Say Y here if you are using the HYQ2440 development board.
+
 config MACH_ANUBIS
 	bool "Simtec Electronics ANUBIS"
 	select CPU_S3C2440
