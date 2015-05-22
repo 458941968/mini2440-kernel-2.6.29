@@ -155,6 +155,7 @@ static struct platform_device *hyq2440_devices[] __initdata = {
 	&s3c_device_wdt,
 	&s3c_device_i2c0,
 	&s3c_device_iis,
+	&s3c_device_dm9k,
 };
 
 static void __init hyq2440_map_io(void)

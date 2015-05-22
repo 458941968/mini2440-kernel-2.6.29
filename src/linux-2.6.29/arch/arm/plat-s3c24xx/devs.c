@@ -35,6 +35,48 @@
 #include <plat/cpu.h>
 #include <plat/regs-spi.h>
 
+#include <linux/dm9000.h>
+
+/* DM9000 */
+static struct resource s3c_dm9k_resource[] = {
+    [0] = {
+        .start = S3C2410_CS4,
+        .end   = S3C2410_CS4 + 3,
+        .flags = IORESOURCE_MEM,
+    },
+    [1] = {
+        .start = S3C2410_CS4 + 4,
+        .end   = S3C2410_CS4 + 4 + 3,
+        .flags = IORESOURCE_MEM,
+    },
+    [2] = {
+        .start = IRQ_EINT7,
+        .end   = IRQ_EINT7,
+        .flags = IORESOURCE_IRQ | IRQF_TRIGGER_RISING,
+    }
+
+};
+
+/* for the moment we limit ourselves to 16bit IO until some
+ * better IO routines can be written and tested
+*/
+
+static struct dm9000_plat_data s3c_dm9k_platdata = {
+    .flags      = DM9000_PLATF_16BITONLY,
+};
+
+struct platform_device s3c_device_dm9k = {
+    .name       = "dm9000",
+    .id     = 0,
+    .num_resources  = ARRAY_SIZE(s3c_dm9k_resource),
+    .resource   = s3c_dm9k_resource,
+    .dev        = {
+        .platform_data = &s3c_dm9k_platdata,
+    }
+};
+
+EXPORT_SYMBOL(s3c_device_dm9k);
+
 /* Serial port registrations */
 
 static struct resource s3c2410_uart0_resource[] = {
