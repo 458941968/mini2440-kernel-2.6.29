@@ -1936,6 +1936,51 @@ config FB_S3C2410
 	  say M here and read <file:Documentation/kbuild/modules.txt>.
 
 	  If unsure, say N.
+
+choice
+	prompt "LCD select"
+	depends on FB_S3C2410
+	help
+	   S3C24x0 LCD size select
+
+config FB_S3C2410_T240320
+	boolean "3.5 inch 240X320 Toppoly LCD"
+	depends on FB_S3C2410
+	help
+	  3.5 inch 240X320 Toppoly LCD
+
+config FB_S3C2410_W320240
+	boolean "3.5 inch 240X320 W LCD"
+	depends on FB_S3C2410
+	help
+	  3.5 inch 240X320 W LCD
+
+config FB_S3C2410_N240320
+	boolean "3.5 inch 240X320 NEC LCD"
+	depends on FB_S3C2410
+	help
+	   3.5 inch 240x320 NEC LCD
+
+config FB_S3C2410_TFT640480
+	boolean "8 inch 640X480 L8 LCD"
+	depends on FB_S3C2410
+	help
+	   8 inch 640X480 SHARP TFT LCD
+
+config FB_S3C2410_TFT800480
+	boolean "7 inch 800x480 TFT LCD"
+	depends on FB_S3C2410
+	help
+	   7 inch 800x480 TFT LCD
+
+config FB_S3C2410_VGA1024768
+	boolean "VGA 1024x768"
+	depends on FB_S3C2410
+	help
+	   VGA 1024x768
+
+endchoice	 
+
 config FB_S3C2410_DEBUG
 	bool "S3C2410 lcd debug messages"
 	depends on FB_S3C2410
