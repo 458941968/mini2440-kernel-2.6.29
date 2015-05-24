@@ -46,6 +46,8 @@
 #include <plat/cpu.h>
 
 #include <plat/common-hyq.h>
+#include <sound/s3c24xx_uda134x.h>
+
 
 static struct map_desc hyq2440_iodesc[] __initdata = {
 	/* ISA IO Space map (memory space selected by A24) */
@@ -265,6 +267,20 @@ static struct s3c2410fb_mach_info hyq2440_fb_info __initdata = {
 
 #endif
 
+static struct s3c24xx_uda134x_platform_data s3c24xx_uda134x_data = {
+	.l3_clk = S3C2410_GPB4,
+	.l3_data = S3C2410_GPB3,
+	.l3_mode = S3C2410_GPB2,
+	.model = UDA134X_UDA1341,
+};
+
+static struct platform_device s3c24xx_uda134x = {
+	.name = "s3c24xx_uda134x",
+	.dev = {
+		.platform_data    = &s3c24xx_uda134x_data,
+	}
+};
+
 static struct platform_device *hyq2440_devices[] __initdata = {
 	&s3c_device_usb,
 	&s3c_device_lcd,
@@ -272,6 +288,7 @@ static struct platform_device *hyq2440_devices[] __initdata = {
 	&s3c_device_i2c0,
 	&s3c_device_iis,
 	&s3c_device_dm9k,
+	&s3c24xx_uda134x,
 };
 
 static void __init hyq2440_map_io(void)
