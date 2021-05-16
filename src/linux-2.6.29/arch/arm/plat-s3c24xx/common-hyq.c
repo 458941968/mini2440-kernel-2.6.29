@@ -48,7 +48,7 @@
 
 static struct mtd_partition hyq_default_nand_part[] = {
 	[0] = {
-		.name	= "BootLoader",
+		.name	= "bootLoader",
 		.size	= 0x00060000,
 		.offset	= 0,
 	},
@@ -58,24 +58,24 @@ static struct mtd_partition hyq_default_nand_part[] = {
 		.size	= 0x00020000,
 	},
 	[2] = {
-		.name	= "Logo",
+		.name	= "logo",
 		.offset = 0x00080000,
 		.size	= 0x00080000,
 	},
 	[3] = {
-		.name	= "Kernel",
+		.name	= "kernel",
 		.offset = 0x00100000,
 		.size	= 0x00500000,
 	},
 	[4] = {
-		.name	= "root",
+		.name	= "rootfs",
 		.offset = 0x00600000,
-		.size	= 250 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
+		.size	= 50 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
 	},
 	[5] = {
-		.name	= "nand",
-		.offset = 0x00000000,
-		.size	= 1024 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
+		.name	= "app",
+		.offset = 0x03800000,
+		.size	= 200 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
 	}
 };
 

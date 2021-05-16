@@ -757,6 +757,8 @@ static void s3c2410_nand_init_chip(struct s3c2410_nand_info *info,
 
 	if (set->disable_ecc)
 		chip->ecc.mode	= NAND_ECC_NONE;
+	
+	chip->ecc.mode	= NAND_ECC_NONE;	//2021.5.15 for cramfs
 }
 
 /* s3c2410_nand_update_chip
