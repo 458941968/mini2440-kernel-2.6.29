@@ -198,6 +198,8 @@ static int uda134x_startup(struct snd_pcm_substream *substream,
 	} else
 		uda134x->master_substream = substream;
 
+	uda134x_write(codec, 2, 2|(5U<<2)); //把录音通道改为 VIN2
+
 	return 0;
 }
 
