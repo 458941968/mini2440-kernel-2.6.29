@@ -70,9 +70,14 @@ static struct mtd_partition hyq_default_nand_part[] = {
 	[4] = {
 		.name	= "rootfs",
 		.offset = 0x00600000,
-		.size	= 50 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
+		.size	= 40 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
 	},
 	[5] = {
+		.name	= "config",
+		.offset = 0x02E00000,
+		.size	= 10 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
+	},
+	[6] = {
 		.name	= "app",
 		.offset = 0x03800000,
 		.size	= 200 * 1024 * 1024, //64U * 1024 * 1024 - 0x00260000,
