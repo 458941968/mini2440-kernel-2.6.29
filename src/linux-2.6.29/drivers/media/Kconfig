@@ -90,6 +90,11 @@ config VIDEO_MEDIA
 	tristate
 	default (DVB_CORE && (VIDEO_DEV = n)) || (VIDEO_DEV && (DVB_CORE = n)) || (DVB_CORE && VIDEO_DEV)
 
+config  S3C2440_CAMERA
+	tristate "OV9650 on the S3C2440 driver"
+	depends on VIDEO_DEV && MACH_HYQ2440
+	default y if (VIDEO_DEV && MACH_HYQ2440)
+
 comment "Multimedia drivers"
 
 source "drivers/media/common/Kconfig"
@@ -117,7 +122,7 @@ source "drivers/media/dvb/Kconfig"
 config DAB
 	boolean "DAB adapters"
 	---help---
-	  Allow selecting support for for Digital Audio Broadcasting (DAB)
+	  Allow selecting support for Digital Audio Broadcasting (DAB)
 	  Receiver adapters.
 
 if DAB

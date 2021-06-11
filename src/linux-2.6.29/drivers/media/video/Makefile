@@ -11,6 +11,7 @@ stkwebcam-objs	:=	stk-webcam.o stk-sensor.o
 omap2cam-objs	:=	omap24xxcam.o omap24xxcam-dma.o
 
 videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-subdev.o
+s3c2440camera-objs	:=	s3c2440_ov9650.o sccb.o s3c2440camif.o
 
 obj-$(CONFIG_VIDEO_DEV) += videodev.o v4l2-int-device.o
 ifeq ($(CONFIG_COMPAT),y)
@@ -149,6 +150,7 @@ obj-$(CONFIG_SOC_CAMERA_TW9910)		+= tw9910.o
 obj-$(CONFIG_VIDEO_AU0828) += au0828/
 
 obj-$(CONFIG_USB_VIDEO_CLASS)	+= uvc/
+obj-$(CONFIG_S3C2440_CAMERA) += s3c2440camera.o
 
 EXTRA_CFLAGS += -Idrivers/media/dvb/dvb-core
 EXTRA_CFLAGS += -Idrivers/media/dvb/frontends
